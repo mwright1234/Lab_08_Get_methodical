@@ -141,4 +141,35 @@ public static boolean getYNConfirm(Scanner pipe, String prompt){
         return retString;
     }
 
+    public static void prettyHeader(String msg) {
+        final int WIDTH = 60;
+        int msgWidth = msg.length() + 6;
+        int space = (WIDTH - msgWidth) / 2;
+
+        // Print top border using a loop
+        for (int i = 0; i < WIDTH; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+
+
+        System.out.print("***");
+        for (int i = 0; i < space; i++) {
+            System.out.print(" ");
+        }
+        System.out.print(msg);
+        for (int i = 0; i < space; i++) {
+            System.out.print(" ");
+        }
+        System.out.println("***");
+
+        // Print bottom border using a loop
+        for (int i = 0; i < WIDTH; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+
+
+
 }
