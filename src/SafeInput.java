@@ -88,17 +88,57 @@ public class SafeInput {
     }
 
 public static boolean getYNConfirm(Scanner pipe, String prompt){
-        boolean yesOrNo;
+        String yesOrNo;
+        boolean result = false;
         boolean done = false;
 
         do {
-            System.out.print(prompt + ": ");
+            System.out.print(prompt + "(Y/N):");
+            yesOrNo = pipe.nextLine();
+            if (yesOrNo.equalsIgnoreCase("Y")) {
+                result = true;
+                done = true;
+            }else if (yesOrNo.equalsIgnoreCase("N")) {
+                    result = false;
+                    done = true;
 
+            }else{
 
+                System.out.println("You did not enter Y or N.");
 
+            }
         }
         while(!done);
 
+        return result;
 }
+
+    public static String getRegExString(Scanner pipe, String prompt, String regEx) {
+        String userInput = "";
+        boolean validInput = false;
+
+        while (!validInput) {
+            System.out.print(prompt + ": ");
+            userInput = pipe.nextLine();
+
+            if (userInput.matches(regEx)) {
+                validInput = true;
+            } else {
+                System.out.println("Invalid input. Please ensure you enter a phone number: ");
+            }
+        }
+
+        return userInput;
+    }
+    public static String getZeroLengthString(Scanner pipe, String prompt) {
+        String retString = "";
+        do {
+            System.out.print(prompt + ": ");
+            retString = pipe.nextLine();
+
+        } while (retString.length() == 0);
+
+        return retString;
+    }
 
 }

@@ -20,8 +20,17 @@ public class DevTest {
         int rangedInt = SafeInput.getRangedInt(in, "Enter a number", 1, 10);
         System.out.println("You entered: " + rangedInt);
 
+        // Test getRangedDouble method with range [1, 10]
         double rangedDouble = SafeInput.getRangedDouble(in, "Enter a double", 1, 10);
         System.out.println("you entered: " + rangedDouble);
+
+        // test getYNConfirm method
+        boolean yesNo = SafeInput.getYNConfirm(in, "Enter yes or no");
+        System.out.println("you entered: " + yesNo);
+
+        String phoneNumber = SafeInput.getRegExString(in, "Enter your phone number", "^(\\(\\d{3}\\)\\s?|\\d{3})\\d{3}-?\\d{4}$");
+        System.out.println("You entered: " + phoneNumber);
+
 
         in.close();
     }
