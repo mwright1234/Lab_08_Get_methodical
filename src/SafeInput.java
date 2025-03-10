@@ -124,7 +124,7 @@ public static boolean getYNConfirm(Scanner pipe, String prompt){
             if (userInput.matches(regEx)) {
                 validInput = true;
             } else {
-                System.out.println("Invalid input. Please ensure you enter a phone number: ");
+                System.out.println("Invalid input. ");
             }
         }
 
